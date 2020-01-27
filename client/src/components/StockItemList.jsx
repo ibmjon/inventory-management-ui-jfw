@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import {
   StructuredListWrapper,
   StructuredListRow,
@@ -8,6 +9,7 @@ import {
   StructuredListInput,
   Icon
 } from "carbon-components-react";
+
 import { iconCheckmarkSolid } from "carbon-icons";
 import Header from "../pattern-components/Header";
 import "../pattern-components/patterns.scss";
@@ -57,8 +59,8 @@ class StockItemList extends Component {
   async componentDidMount() {
 
     this.setState({
-      data: this.data,
-    })
+        data: await this.props.stockService.listStockItems()
+    });
   }
 
   onRowClick = id => {
